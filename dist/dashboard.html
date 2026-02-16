@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrativo - [PROJECT_NAME]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="manifest" href="/assets/manifest-BwV7lGo5.json">
+  <script type="module" crossorigin src="/assets/theme-9Jz51v2U.js"></script>
+  <script type="module" crossorigin src="/assets/main-m6Nr8-lc.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-CVGXVOya.css">
+</head>
+
+<body class="bg-gray-50">
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+        <aside class="dash-sidebar sidebar">
+            <div class="dash-brand">[PROJECT_NAME]</div>
+            <ul class="dash-nav">
+                <li class="dash-item active"><a href="dashboard.html">📊 Dashboard</a></li>
+                <li class="dash-item"><a href="#" onclick="showSection('messages')">💬 Mensajes <span id="msgBadge"
+                            style="background:red; color:white; border-radius:50%; padding:2px 6px; font-size:0.7em; display:none;">0</span></a>
+                </li>
+                <li class="dash-item"><a href="budget.html">📝 Presupuestos</a></li>
+                <li class="dash-item"><a href="contract.html">📄 Contratos</a></li>
+                <li class="dash-item"><a href="profile.html">💼 Mi Portafolio</a></li>
+                <li class="dash-item"><a href="settings.html">⚙️ Ajustes</a></li>
+                <li class="dash-item"><a href="index.html">🚪 Salir</a></li>
+                <li class="dash-item"
+                    style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <button class="theme-toggle-btn"
+                        style="color: white; border-color: white; width: 100%; justify-content: start; gap: 10px; border-radius: 8px;">
+                        <span>🌙</span> Cambiar Tema
+                    </button>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+            <!-- Mobile Header for toggle -->
+            <header class="dash-header-mobile">
+                <button class="mobile-menu-toggle">Menú</button>
+                <span class="dash-title-mobile">Dashboard</span>
+            </header>
+
+            <header class="dash-header">
+                <h1>Hola</h1>
+                <p>Aquí tienes el resumen de tu negocio hoy.</p>
+            </header>
+
+            <!-- Messages Section (Hidden by default) -->
+            <section id="messagesSection" style="display: none;">
+                <button onclick="location.reload()"
+                    style="margin-bottom: 1rem; background:none; border:none; color:var(--color-primario); cursor:pointer;">←
+                    Volver al Dashboard</button>
+                <div style="display: grid; grid-template-columns: 300px 1fr; gap: 1rem; height: 600px;">
+                    <!-- Leads List -->
+                    <div class="card" style="overflow-y: auto; padding: 0;">
+                        <h3 style="padding: 1rem; border-bottom: 1px solid #E2E8F0; margin: 0; background: #F8FAFC;">
+                            Solicitudes (Leads)</h3>
+                        <div id="leadsList">
+                            <!-- JS will populate -->
+                            <p style="padding: 1rem; color: #64748B; text-align: center;">No hay mensajes nuevos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Chat Area -->
+                    <div class="card" style="display: flex; flex-direction: column; padding: 0; overflow: hidden;">
+                        <div id="chatHeader"
+                            style="padding: 1rem; border-bottom: 1px solid #E2E8F0; background: #F8FAFC; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: bold;">Selecciona un mensaje</span>
+                            <button id="btnConvertBudget" class="btn-primary"
+                                style="display: none; font-size: 0.8rem; padding: 0.5rem 1rem;">📝 Convertir en
+                                Presupuesto</button>
+                        </div>
+                        <div id="chatHistory" style="flex: 1; padding: 1rem; overflow-y: auto; background: #fff;">
+                            <!-- Chat messages -->
+                            <div style="text-align: center; color: #94A3B8; margin-top: 2rem;">
+                                💬 Selecciona una solicitud para ver los detalles y negociar.
+                            </div>
+                        </div>
+                        <div style="padding: 1rem; border-top: 1px solid #E2E8F0; display: flex; gap: 0.5rem;">
+                            <input type="text" id="chatInput" placeholder="Escribe una respuesta..." style="flex: 1;"
+                                disabled>
+                            <button id="btnSendChat" class="btn-primary" disabled>Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Main View Wrapper -->
+            <div id="dashboardMain">
+                <!-- Top Metrics Grid -->
+                <div class="metrics-grid">
+                    <div class="metric-card-dash">
+                        <h3>Ingresos Totales</h3>
+                        <div class="value-large">$45,200</div>
+                        <span class="trend positive">↗ +12% este mes</span>
+                    </div>
+                    <div class="metric-card-dash">
+                        <h3>Trabajos en Curso</h3>
+                        <div class="value-large">3</div>
+                        <span class="subtext">2 por finalizar</span>
+                    </div>
+                    <div class="metric-card-dash">
+                        <h3>Presupuestos</h3>
+                        <div class="value-large warning">5</div>
+                        <span class="subtext">Pendientes de respuesta</span>
+                    </div>
+                    <div class="metric-card-dash">
+                        <h3>Reputación</h3>
+                        <div class="value-large">4.9</div>
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+
+                <!-- Goal Progress Module -->
+                <div class="goal-module card" style="margin-bottom: 2rem; padding: 1.5rem;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h2 style="margin: 0; font-size: 1.2rem;">Meta Mensual</h2>
+                        <span id="goalTarget" style="font-weight: bold; color: var(--color-primario);">$0</span>
+                    </div>
+                    <div class="progress-bar-container"
+                        style="background: #E2E8F0; border-radius: 10px; height: 20px; width: 100%; overflow: hidden;">
+                        <div id="goalProgress"
+                            style="background: linear-gradient(90deg, #F59E0B, #D97706); height: 100%; width: 0%; transition: width 0.5s;">
+                        </div>
+                    </div>
+                    <p id="goalText" style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748B;">Configura tu meta en
+                        el
+                        perfil.</p>
+                </div>
+
+                <!-- Financial Health Module (Accounting) - Refactored -->
+                <section class="financial-module card" style="cursor: pointer; transition: all 0.3s;"
+                    id="accountingCard">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <span style="font-size: 1.5rem;">📊</span>
+                            <div>
+                                <h2 style="margin: 0; font-size: 1.1rem;">Gestión Contable Profesional</h2>
+                                <p style="margin: 0; font-size: 0.85rem; color: #64748B;">Impuestos, Gastos y Ganancia
+                                    Neta
+                                </p>
+                            </div>
+                        </div>
+                        <span style="font-size: 1.2rem; color: #94A3B8;">▼</span>
+                    </div>
+
+                    <!-- Hidden Content -->
+                    <div id="accountingDetails"
+                        style="display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #E2E8F0; animation: fadeIn 0.3s;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 style="font-size: 1rem;">Desglose Financiero</h3>
+                            <button id="btnExport" class="btn-small-clear"
+                                style="border: 1px solid #CBD5E1; padding: 4px 8px; border-radius: 4px; cursor: pointer;">📄
+                                Exportar Reporte</button>
+                        </div>
+
+                        <div class="financial-bar-container">
+                            <div class="fin-bar materials" style="width: 40%;"></div>
+                            <div class="fin-bar tools" style="width: 10%;"></div>
+                            <div class="fin-bar taxes" style="width: 20%;"></div>
+                            <div class="fin-bar profit" style="width: 30%;"></div>
+                        </div>
+                        <div class="financial-legend">
+                            <div class="legend-item"><span class="dot materials"></span> Materiales (40%)</div>
+                            <div class="legend-item"><span class="dot tools"></span> Herramientas (10%)</div>
+                            <div class="legend-item"><span class="dot taxes"></span> Impuestos (20%)</div>
+                            <div class="legend-item"><span class="dot profit"></span> Ganancia Neta (30%)</div>
+                        </div>
+
+                        <!-- Analytics: Star Service -->
+                        <div class="star-service"
+                            style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #E2E8F0;">
+                            <h3 style="font-size: 1rem; color: var(--color-oscuro);">🏆 Servicio Estrella</h3>
+                            <p id="starServiceText" style="color: #64748B; font-size: 0.9rem;">Analizando tus
+                                trabajos...
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Activity Table -->
+                <section class="activity-section card">
+                    <h2>Actividad Reciente</h2>
+                    <div class="table-responsive">
+                        <table class="activity-table">
+                            <thead>
+                                <tr>
+                                    <th>Cliente</th>
+                                    <th>Servicio</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Monto</th>
+                                </tr>
+                            </thead>
+                            <tbody id="activityTableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Arsenal & Inventory Section -->
+                <section class="grid-2-col"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                    <!-- Arsenal Card -->
+                    <div class="card" style="padding: 1.5rem;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3>🛠️ Arsenal de Herramientas</h3>
+                            <button id="btnAddTool" class="btn-small">Agregar</button>
+                        </div>
+                        <div
+                            style="background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                            <span
+                                style="display: block; font-size: 0.8rem; color: #D97706; text-transform: uppercase; font-weight: bold;">Fondo
+                                de Renovación</span>
+                            <span id="arsenalValue"
+                                style="font-size: 1.5rem; font-weight: bold; color: #B45309;">$0</span>
+                        </div>
+                        <p style="font-size: 0.85rem; color: #666;">El dinero que has acumulado para reponer tus
+                            equipos.
+                        </p>
+                    </div>
+
+                    <!-- Inventory Card -->
+                    <div class="card" style="padding: 1.5rem;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3>📦 Inventario (Obra Vendida)</h3>
+                            <button id="btnAddInventory" class="btn-small">Gestionar</button>
+                        </div>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">¿Trabajas obra vendida? Carga tus materiales
+                            aquí
+                            para descontarlos automáticamente.</p>
+                        <div
+                            style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 0.5rem 1rem; text-align: center;">
+                            <span style="color: #2563EB; font-weight: 500;">Ver Stock Disponible</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Efficiency Card (New) -->
+                <section class="card" style="margin-top: 1.5rem; padding: 1.5rem;">
+                    <h3>⏱️ Cronómetro de Rentabilidad</h3>
+                    <div style="display: flex; gap: 2rem; align-items: center; margin-top: 1rem;">
+                        <div>
+                            <span style="font-size: 0.9rem; color: #666;">Valor Hora Último Proyecto</span>
+                            <div id="efficiencyValue"
+                                style="font-size: 2rem; font-weight: bold; color: var(--color-oscuro);">--</div>
+                        </div>
+                        <div style="flex: 1; border-left: 1px solid #eee; padding-left: 2rem;">
+                            <p id="efficiencyText" style="font-size: 1rem;">Completa un trabajo para ver tu eficiencia
+                                real.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+            </div> <!-- End dashboardMain -->
+
+            <!-- Modals (Hidden) -->
+            <!-- Tool Modal -->
+            <div id="toolModal" class="modal"
+                style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center;">
+                <div class="modal-content"
+                    style="background-color: #fefefe; padding: 20px; border: 1px solid #888; width: 90%; max-width: 500px; border-radius: 8px;">
+                    <span id="btnCloseTool" class="close"
+                        style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                    <h2 style="margin-bottom: 1rem;">Agregar Herramienta</h2>
+                    <form id="toolForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <input type="text" id="toolName" placeholder="Nombre (ej. Taladro)" class="form-input" required>
+                        <input type="number" id="toolPrice" placeholder="Precio de Mercado ($)" class="form-input"
+                            required>
+                        <input type="number" id="toolLifespan" placeholder="Vida Útil (Años)" class="form-input"
+                            required>
+                        <button type="submit" class="btn-primary">Guardar Herramienta</button>
+                    </form>
+                </div>
+
+                <!-- Review Modal -->
+                <div id="reviewModal" class="modal"
+                    style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center;">
+                    <div class="modal-content"
+                        style="background-color: #fefefe; padding: 20px; border: 1px solid #888; width: 90%; max-width: 500px; border-radius: 8px;">
+                        <span id="btnCloseReview" class="close"
+                            style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                        <h2 style="margin-bottom: 1rem;">Calificar Cliente</h2>
+                        <form id="reviewForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                            <input type="hidden" id="reviewContractId">
+                            <div>
+                                <label>Calificación:</label>
+                                <select id="reviewStars" class="form-input" required>
+                                    <option value="5">⭐⭐⭐⭐⭐ Excelente</option>
+                                    <option value="4">⭐⭐⭐⭐ Muy Bueno</option>
+                                    <option value="3">⭐⭐⭐ Bueno</option>
+                                    <option value="2">⭐⭐ Regular</option>
+                                    <option value="1">⭐ Malo</option>
+                                </select>
+                            </div>
+                            <textarea id="reviewComment" placeholder="Comentario sobre el cliente..." class="form-input"
+                                rows="3" required></textarea>
+                            <div style="font-size: 0.8rem; color: #64748B;">
+                                <input type="checkbox" id="reviewVerified" checked disabled>
+                                <label>🛡️ Verificación de Identidad (Automática)</label>
+                            </div>
+                            <button type="submit" class="btn-primary">Enviar Reseña Verificada</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+
+</html>

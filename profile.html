@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Técnico - [PROJECT_NAME]</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="brand"><a href="index.html">[PROJECT_NAME]</a></div>
+        <div class="nav-links">
+            <a href="feed.html" class="nav-item">Explorar</a>
+            <div class="user-actions">
+                <span class="notification-bell">🔔</span>
+                <span class="user-name">Ing. Usuario</span>
+            </div>
+            <a href="dashboard.html" class="btn-access">Mi Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <header class="profile-header-banner"></header>
+
+    <div class="profile-container">
+
+        <!-- Identity Section -->
+        <div class="profile-identity" style="position: relative;">
+            <button id="btnEditProfile" class="btn-edit-float">
+                <span>✏️</span> Editar Perfil
+            </button>
+
+            <div class="profile-avatar-container">
+                <div class="profile-avatar-placeholder"></div>
+            </div>
+
+            <!-- View Mode -->
+            <div id="viewMode" class="profile-info">
+                <h1 id="viewName">Carlos Méndez</h1>
+                <div class="profile-badges">
+                    <span id="viewTrade" class="badge-primary">Electricista Industrial</span>
+                    <span id="viewLocation" class="location-badge">📍 Ciudad de México</span>
+                </div>
+                <p id="viewGoal" style="color: #cbd5e1; font-size: 0.9rem; margin-top: 5px;">Meta: $0 / mes</p>
+            </div>
+
+            <!-- Edit Mode (Hidden) -->
+            <form id="editMode" class="form-grid"
+                style="display: none; background: #fff; padding: 1rem; border-radius: 10px; color: #333; margin-top: 1rem;">
+                <div class="form-group">
+                    <label>Nombre / Empresa</label>
+                    <input type="text" id="editName" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label>RUT / ID</label>
+                    <input type="text" id="editId" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label>Rubro</label>
+                    <select id="editTrade" class="form-input">
+                        <option value="Electricidad">Electricidad</option>
+                        <option value="Construcción">Construcción</option>
+                        <option value="Carpintería">Carpintería</option>
+                        <option value="Plomería">Plomería</option>
+                        <option value="Climatización">Climatización</option>
+                        <option value="Mecánica">Mecánica</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>País (Moneda)</label>
+                    <select id="editCountry" class="form-input">
+                        <option value="CL">Chile (CLP)</option>
+                        <option value="MX">México (MXN)</option>
+                        <option value="CO">Colombia (COP)</option>
+                        <option value="AR">Argentina (ARS)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Meta Mensual</label>
+                    <input type="number" id="editGoal" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label>Biografía (Sobre mí)</label>
+                    <textarea id="editBio" class="form-input" rows="4"
+                        placeholder="Cuéntanos tu experiencia..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Habilidades (separadas por coma)</label>
+                    <input type="text" id="editSkills" class="form-input"
+                        placeholder="Electricidad Industrial, PLC, Liderazgo, etc.">
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <button type="button" id="btnCancelEdit" class="btn-access"
+                        style="flex: 1; border: 1px solid #ccc; color: #666;">Cancelar</button>
+                    <button type="submit" class="btn-primary" style="flex: 1; justify-content: center;">Guardar</button>
+                </div>
+            </form>
+
+            <button class="cta-floating" onclick="window.location.href='budget.html'">Nuevo Presupuesto</button>
+        </div>
+
+        <!-- Trust & Analytics Metrics -->
+        <div class="trust-metrics" style="flex-wrap: wrap;">
+
+            <!-- Certification Status -->
+            <div id="badgeContainer" class="metric-card" style="cursor: pointer;">
+                <!-- Content injected by JS -->
+            </div>
+
+            <!-- Profitability Ranking -->
+            <div class="metric-card" style="background: #F0F9FF; border-color: #BAE6FD;">
+                <div class="metric-icon">📈</div>
+                <div id="profitRankValue" class="metric-value" style="font-size: 1.2rem; color: #0284C7;">--</div>
+                <div class="metric-label">Top Rentabilidad</div>
+            </div>
+
+            <!-- Upload Modal/Section (Hidden usually, simple toggle for now) -->
+            <input type="file" id="uploadCertInput" style="display: none;" accept="image/*,.pdf">
+        </div>
+
+        <!-- Start Tabs -->
+        <div class="profile-tabs">
+            <button class="tab-btn active" data-tab="cases">Casos de Éxito</button>
+            <button class="tab-btn" data-tab="about">Sobre mí</button>
+            <button class="tab-btn" data-tab="skills">Habilidades</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+
+            <!-- Cases Tab -->
+            <div id="cases" class="tab-pane active">
+                <div class="feed-content" style="grid-template-columns: repeat(2, 1fr);">
+
+                    <!-- Reusing Solution Card Style -->
+                    <article class="solution-card">
+                        <div class="card-visual">
+                            <div class="visual-half before">
+                                <span class="visual-label">Antes</span>
+                                <div class="img-placeholder" style="background-color: #e2e8f0;"></div>
+                            </div>
+                            <div class="visual-half after">
+                                <span class="visual-label">Después</span>
+                                <div class="img-placeholder" style="background-color: #cbd5e1;"></div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Recableado de Tablero Principal</h3>
+                            <p class="card-desc">Modernización de protecciones y ordenamiento de cableado estructurado
+                                según norma NOM-001.</p>
+                            <div class="card-badges">
+                                <span class="badge">Riel DIN</span>
+                                <span class="badge">Peines de Conexión</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="validation-count">
+                                <span class="check-icon">✓</span> 15 Validaciones
+                            </div>
+                            <button class="btn-details">Ver detalles</button>
+                        </div>
+                    </article>
+
+                    <article class="solution-card">
+                        <div class="card-visual">
+                            <div class="visual-half before">
+                                <span class="visual-label">Antes</span>
+                                <div class="img-placeholder" style="background-color: #e2e8f0;"></div>
+                            </div>
+                            <div class="visual-half after">
+                                <span class="visual-label">Después</span>
+                                <div class="img-placeholder" style="background-color: #cbd5e1;"></div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Instalación Puesta a Tierra</h3>
+                            <p class="card-desc">Implementación incorrecta de sistema de tierra física corregido con
+                                soldadura exotérmica.</p>
+                            <div class="card-badges">
+                                <span class="badge">Varilla Copperweld</span>
+                                <span class="badge">Cadweld</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="validation-count">
+                                <span class="check-icon">✓</span> 22 Validaciones
+                            </div>
+                            <button class="btn-details">Ver detalles</button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <!-- About Tab -->
+            <div id="about" class="tab-pane">
+                <div class="card" style="padding: 2rem;">
+                    <h3>Biografía Profesional</h3>
+                    <p style="margin-bottom: 1rem;">Técnico Electricista con más de 10 años de experiencia en el sector
+                        industrial y residencial. Especializado en control de motores, automatización básica y
+                        eficiencia energética. Comprometido con la seguridad y la calidad en cada instalación.</p>
+
+                    <h3>Certificaciones y Títulos</h3>
+                    <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Técnico Superior Universitario en Electricidad Industrial.</li>
+                        <li>Certificación DC-3 en Trabajos en Alturas y Electricidad.</li>
+                        <li>Curso Avanzado de PLC Siemens S7-1200.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Skills Tab -->
+            <div id="skills" class="tab-pane">
+                <div class="card" style="padding: 2rem;">
+                    <h3>Habilidades y Competencias</h3>
+                    <p class="text-sm text-gray-500 mb-4">Competencias técnicas validadas por experiencia.</p>
+                    <div class="card-badges">
+                        <span class="badge" style="font-size: 1rem; padding: 8px 12px;">Instalaciones Eléctricas</span>
+                        <span class="badge" style="font-size: 1rem; padding: 8px 12px;">Lectura de Planos</span>
+                        <span class="badge" style="font-size: 1rem; padding: 8px 12px;">Mantenimiento Preventivo</span>
+                        <span class="badge" style="font-size: 1rem; padding: 8px 12px;">Normativa SEC</span>
+                        <span class="badge" style="font-size: 1rem; padding: 8px 12px;">Automatización Básica</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

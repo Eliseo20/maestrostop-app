@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contratos - [PROJECT_NAME]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="manifest" href="/assets/manifest-BwV7lGo5.json">
+  <script type="module" crossorigin src="/assets/theme-9Jz51v2U.js"></script>
+  <script type="module" crossorigin src="/assets/main-m6Nr8-lc.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-CVGXVOya.css">
+</head>
+
+<body class="bg-gray-50">
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar (Reused) -->
+        <aside class="dash-sidebar sidebar">
+            <div class="dash-brand">[PROJECT_NAME]</div>
+            <ul class="dash-nav">
+                <li class="dash-item"><a href="dashboard.html">📊 Dashboard</a></li>
+                <li class="dash-item"><a href="budget.html">📝 Presupuestos</a></li>
+                <li class="dash-item active"><a href="contract.html">📄 Contratos</a></li>
+                <li class="dash-item"><a href="profile.html">💼 Mi Portafolio</a></li>
+                <li class="dash-item"><a href="#">⚙️ Ajustes</a></li>
+                <li class="dash-item"><a href="index.html">🚪 Salir</a></li>
+                <li class="dash-item"
+                    style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <button class="theme-toggle-btn"
+                        style="color: white; border-color: white; width: 100%; justify-content: start; gap: 10px; border-radius: 8px;">
+                        <span>🌙</span> Cambiar Tema
+                    </button>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dash-main document-workspace">
+            <!-- Mobile Header -->
+            <header class="dash-header-mobile">
+                <button class="mobile-menu-toggle">Menú</button>
+                <span class="dash-title-mobile">Contratos</span>
+            </header>
+
+            <!-- Document Toolbar -->
+            <div class="document-toolbar card">
+                <div class="toolbar-left">
+                    <label for="contractType" class="toolbar-label">Tipo de Servicio:</label>
+                    <select id="contractType" class="form-input toolbar-select">
+                        <option value="installation">Instalación General</option>
+                        <option value="maintenance">Mantenimiento Preventivo</option>
+                        <option value="consulting">Consultoría Técnica</option>
+                    </select>
+                </div>
+                <div class="contract-toolbar">
+                    <button class="btn-back" onclick="window.history.back()">← Volver</button>
+                    <div class="toolbar-actions">
+                        <button id="btnOpenAnnexModal" class="btn-secondary"
+                            style="background-color: #F59E0B; color: white;">+ Agregar Anexo</button>
+                        <button class="btn-primary" onclick="window.print()">🖨️ Imprimir / PDF</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- A4 Document Area -->
+            <div class="document-container">
+                <div id="contractContent">
+                    <!-- Content injected by JS (Full A4 Paper) -->
+                    <p style="text-align: center; color: var(--text-secondary); margin-top: 2rem;">Cargando contrato...
+                    </p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Annex Modal -->
+    <div id="annexModal" class="modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; justify-content: center; align-items: center;">
+        <div class="modal-content"
+            style="background: var(--card-bg); padding: 2rem; border-radius: 12px; width: 90%; max-width: 500px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <h3 style="margin-bottom: 1rem; color: var(--text-primary);">📝 Nuevo Anexo de Contrato</h3>
+            <p class="text-xs text-gray-500 mb-4">Agrega trabajos adicionales solicitados por el cliente después de la
+                firma original.</p>
+
+            <div class="form-group">
+                <label>Descripción del Trabajo Adicional</label>
+                <input type="text" id="annexDesc" class="form-input"
+                    placeholder="Ej. Instalación de enchufe extra en cocina">
+            </div>
+            <div class="form-group">
+                <label>Costo Adicional</label>
+                <input type="number" id="annexPrice" class="form-input" placeholder="0">
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 1.5rem;">
+                <button id="btnCloseAnnex" class="btn-secondary" style="flex: 1;">Cancelar</button>
+                <button id="btnSaveAnnex" class="btn-primary" style="flex: 1; justify-content: center;">Guardar
+                    Anexo</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

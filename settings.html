@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes - [PROJECT_NAME]</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-gray-50">
+
+    <nav class="navbar">
+        <div class="brand"><a href="index.html">[PROJECT_NAME]</a></div>
+        <div class="nav-links">
+            <a href="dashboard.html" class="nav-item">Volver al Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="main-layout" style="max-width: 800px; flex-direction: column;">
+        <h1 style="margin-bottom: 2rem;">Ajustes de Cuenta</h1>
+
+        <div class="card" style="margin-bottom: 2rem;">
+            <h3>Perfil y Seguridad</h3>
+            <form id="settingsForm">
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="settingEmail" class="form-input" value="usuario@ejemplo.com" disabled>
+                    <p class="text-xs text-gray-500" style="margin-top: 5px;">Contacta a soporte para cambiar tu correo.
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña Actual</label>
+                    <input type="password" class="form-input" placeholder="********">
+                </div>
+                <div class="form-group">
+                    <label>Nueva Contraseña</label>
+                    <input type="password" class="form-input" placeholder="********">
+                </div>
+                <button type="button" class="btn-primary" style="margin-top: 1rem;">Actualizar Contraseña</button>
+            </form>
+        </div>
+
+        <div class="card" style="margin-bottom: 2rem;">
+            <h3>Preferencias de Aplicación</h3>
+            <div class="form-group" style="display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                    <label style="margin-bottom: 0;">Notificaciones por Correo</label>
+                    <p class="text-xs text-gray-500">Recibe resúmenes semanales y alertas de seguridad.</p>
+                </div>
+                <input type="checkbox" checked style="transform: scale(1.5);">
+            </div>
+            <hr style="margin: 1rem 0; border: 0; border-top: 1px solid #eee;">
+            <div class="form-group" style="display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                    <label style="margin-bottom: 0;">Tema Oscuro</label>
+                    <p class="text-xs text-gray-500">Cambia la apariencia de la aplicación.</p>
+                </div>
+                <!-- Mock Toggle -->
+                <button class="btn-small-clear" style="border: 1px solid #ccc;">Desactivado</button>
+            </div>
+        </div>
+
+        <div class="card" style="border-color: #fee2e2;">
+            <h3 style="color: #dc2626;">Zona de Peligro</h3>
+            <p style="margin-bottom: 1rem;">Estas acciones no se pueden deshacer.</p>
+            <button class="btn-access" style="border-color: #dc2626; color: #dc2626; width: 100%;">Cerrar
+                Sesión</button>
+            <button class="btn-access"
+                style="border-color: #dc2626; color: #dc2626; width: 100%; margin-top: 1rem; background: #fef2f2;">Eliminar
+                Cuenta</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

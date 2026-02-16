@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed de Soluciones - [PROJECT_NAME]</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="manifest" href="/assets/manifest-BwV7lGo5.json">
+    <!-- Icons (using generic text for now, could integrate FontAwesome or similar later if requested, focusing on CSS shapes/text as per instructions) -->
+  <script type="module" crossorigin src="/assets/theme-9Jz51v2U.js"></script>
+  <script type="module" crossorigin src="/assets/main-m6Nr8-lc.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-CVGXVOya.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="brand"><a href="index.html">[PROJECT_NAME]</a></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Inicio</a>
+            <a href="feed.html" class="nav-item">Explorar</a>
+            <div class="user-actions">
+                <span class="notification-bell">🔔</span>
+                <span class="user-name">Ing. Usuario</span>
+            </div>
+        </div>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" aria-label="Toggle filters">Filtros</button>
+    </nav>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="search-container">
+                <input type="text" placeholder="Buscar solución..." class="search-input">
+            </div>
+            <ul class="category-list">
+                <li class="category-item active">Todos</li>
+                <li class="category-item">Electricidad</li>
+                <li class="category-item">Climatización</li>
+                <li class="category-item">Plomería</li>
+                <li class="category-item">Electrónica</li>
+            </ul>
+        </aside>
+
+        <!-- Feed Content -->
+        <main class="feed-content">
+
+            <!-- Solution Card 1 -->
+            <article class="solution-card">
+                <div class="card-visual">
+                    <div class="visual-half before">
+                        <span class="visual-label">Antes</span>
+                        <!-- Placeholder for image -->
+                        <div class="img-placeholder" style="background-color: #e2e8f0;"></div>
+                    </div>
+                    <div class="visual-half after">
+                        <span class="visual-label">Después</span>
+                        <!-- Placeholder for image -->
+                        <div class="img-placeholder" style="background-color: #cbd5e1;"></div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Reparación de Tablero Industrial</h3>
+                    <p class="card-desc">Sustitución de contactores quemados y reordenamiento de cableado de control en
+                        planta de procesamiento.</p>
+                    <div class="card-badges">
+                        <span class="badge">Inversor 5kW</span>
+                        <span class="badge">Cable 10mm</span>
+                        <span class="badge">Schneider Electric</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="validation-count">
+                        <span class="check-icon">✓</span> 12 Validaciones
+                    </div>
+                    <button class="btn-details">Ver detalles</button>
+                </div>
+            </article>
+
+            <!-- Solution Card 2 -->
+            <article class="solution-card">
+                <div class="card-visual">
+                    <div class="visual-half before">
+                        <span class="visual-label">Antes</span>
+                        <div class="img-placeholder" style="background-color: #e2e8f0;"></div>
+                    </div>
+                    <div class="visual-half after">
+                        <span class="visual-label">Después</span>
+                        <div class="img-placeholder" style="background-color: #cbd5e1;"></div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Instalación de AC Split</h3>
+                    <p class="card-desc">Instalación completa de unidad de 12000 BTU en oficina administrativa,
+                        incluyendo desagüe y carga de gas.</p>
+                    <div class="card-badges">
+                        <span class="badge">Tubería Cobre 1/4"</span>
+                        <span class="badge">Aislante Armaflex</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="validation-count">
+                        <span class="check-icon">✓</span> 8 Validaciones
+                    </div>
+                    <button class="btn-details">Ver detalles</button>
+                </div>
+            </article>
+
+            <!-- Solution Card 3 -->
+            <article class="solution-card">
+                <div class="card-visual">
+                    <div class="visual-half before">
+                        <span class="visual-label">Antes</span>
+                        <div class="img-placeholder" style="background-color: #e2e8f0;"></div>
+                    </div>
+                    <div class="visual-half after">
+                        <span class="visual-label">Después</span>
+                        <div class="img-placeholder" style="background-color: #cbd5e1;"></div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Recuperación de Circuito CCTV</h3>
+                    <p class="card-desc">Diagnóstico y reparación de línea de video interrumpida por daños físicos en
+                        tubería exterior.</p>
+                    <div class="card-badges">
+                        <span class="badge">Cable UTP Cat6</span>
+                        <span class="badge">Baluns HD</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="validation-count">
+                        <span class="check-icon">✓</span> 24 Validaciones
+                    </div>
+                    <button class="btn-details">Ver detalles</button>
+                </div>
+            </article>
+
+            <!-- Solution Card 4 -->
+            <article class="solution-card">
+                <div class="card-visual">
+                    <div class="visual-half before">
+                        <span class="visual-label">Antes</span>
+                        <div class="img-placeholder" style="background-color: #e2e8f0;"></div>
+                    </div>
+                    <div class="visual-half after">
+                        <span class="visual-label">Después</span>
+                        <div class="img-placeholder" style="background-color: #cbd5e1;"></div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Automatización de Bombeo</h3>
+                    <p class="card-desc">Implementación de sistema de control automático para bomba de agua con sensores
+                        de nivel y protección térmica.</p>
+                    <div class="card-badges">
+                        <span class="badge">Relé de Nivel</span>
+                        <span class="badge">Contactor 25A</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="validation-count">
+                        <span class="check-icon">✓</span> 15 Validaciones
+                    </div>
+                    <button class="btn-details">Ver detalles</button>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <!-- Scripts -->
+</body>
+
+</html>

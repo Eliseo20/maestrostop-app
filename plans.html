@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes y Precios - [PROJECT_NAME]</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navbar (Simplified reuse or direct copy given static nature) -->
+    <nav class="navbar">
+        <div class="brand">[PROJECT_NAME]</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Inicio</a>
+            <a href="marketplace.html" class="nav-item">Buscar Servicios</a>
+            <a href="features.html" class="nav-item">Funciones</a>
+            <a href="plans.html" class="nav-item active">Precios</a>
+            <div class="nav-auth-buttons" style="display: flex; gap: 10px;">
+                <a href="login.html" class="btn-access"
+                    style="background: transparent; border: 1px solid var(--color-primario); color: var(--color-primario);">Iniciar
+                    Sesión</a>
+                <a href="registration.html" class="btn-access"
+                    style="background: var(--color-oscuro); border: 1px solid var(--color-oscuro); color: white;">Registrarse</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="padding: 40px 5%;">
+        <h1>Elige el plan perfecto para tu crecimiento</h1>
+        <p>Desde herramientas básicas hasta gestión profesional completa.</p>
+    </section>
+
+    <div class="pillars" style="max-width: 1000px;">
+        <!-- Turn pillars grid into pricing cards -->
+
+        <!-- FREE PLAN -->
+        <div class="card" style="border-top: 5px solid #94A3B8; text-align: center;">
+            <h3 style="font-size: 1.8rem;">Gratis</h3>
+            <p style="font-size: 2.5rem; font-weight: bold; color: var(--color-oscuro); margin: 1rem 0;">$0</p>
+            <p style="margin-bottom: 2rem;">Para quienes están empezando.</p>
+            <ul style="text-align: left; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                <li>✅ 3 Presupuestos por mes</li>
+                <li>✅ Perfil Técnico Básico</li>
+                <li>✅ Acceso a Muro de Soluciones</li>
+            </ul>
+            <a href="registration.html" class="btn-access" style="display: block; text-align: center;">Comenzar
+                Gratis</a>
+        </div>
+
+        <!-- PRO PLAN -->
+        <div class="card"
+            style="border-top: 5px solid var(--color-primario); text-align: center; transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+            <div
+                style="background: var(--color-primario); color: white; padding: 4px 12px; border-radius: 20px; display: inline-block; font-size: 0.8rem; font-weight: bold; margin-bottom: 0.5rem;">
+                RECOMENDADO</div>
+            <h3 style="font-size: 1.8rem;">Profesional</h3>
+            <p style="font-size: 2.5rem; font-weight: bold; color: var(--color-oscuro); margin: 1rem 0;">$9.990 <span
+                    style="font-size: 1rem; color: #64748B;">/mes</span></p>
+            <p style="margin-bottom: 2rem;">Para expertos que quieren crecer.</p>
+            <ul style="text-align: left; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                <li>🔥 <strong>Presupuestos Ilimitados</strong></li>
+                <li>⚖️ <strong>Contratos Generados Automáticamente</strong></li>
+                <li>💰 Gestión Inteligente de Anticipos</li>
+                <li>📊 Estadísticas de Negocio</li>
+                <li>⭐ Perfil Verificado Destacado</li>
+            </ul>
+            <a href="registration.html" class="btn-cta"
+                style="display: block; text-align: center; padding: 12px;">Obtener Pro</a>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - [PROJECT_NAME]</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script type="module" crossorigin src="/assets/theme-9Jz51v2U.js"></script>
+  <script type="module" crossorigin src="/assets/main-m6Nr8-lc.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-CVGXVOya.css">
+</head>
+
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+    <div class="card" style="max-width: 400px; width: 100%; margin: 2rem;">
+        <div class="text-center mb-2rem">
+            <h1 style="color: #1e3a8a; font-size: 1.5rem; margin-bottom: 0.5rem;">Bienvenido de nuevo</h1>
+            <p style="color: #64748B;">Ingresa a tu cuenta para gestionar tus proyectos.</p>
+        </div>
+        <form id="loginForm" class="flex flex-col gap-1rem">
+            <div class="form-group">
+                <label for="loginEmail">Correo Electrónico</label>
+                <input type="email" id="loginEmail" class="form-input" placeholder="correo@ejemplo.com" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Contraseña</label>
+                <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-primary w-full mt-1rem">Ingresar</button>
+
+            <div class="flex items-center my-1rem">
+                <div class="flex-grow border-t border-gray-300"></div>
+                <span class="mx-4 text-gray-500 text-sm">O</span>
+                <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+
+            <div id="g_id_onload"
+                data-client_id="1005611267221-qe6jv2n42m2gf2lpugrhk19me6l130fl.apps.googleusercontent.com"
+                data-callback="handleCredentialResponse" data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
+                data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left" data-width="350">
+            </div>
+        </form>
+        <p class="text-center mt-1rem" style="font-size: 0.9rem; color: #64748B;">
+            ¿No tienes cuenta? <a href="registration.html"
+                style="color: var(--color-primario); font-weight: 600;">Regístrate aquí</a>
+        </p>
+    </div>
+</body>
+
+</html>

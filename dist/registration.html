@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Técnico - [PROJECT_NAME]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link rel="manifest" href="/assets/manifest-BwV7lGo5.json">
+  <script type="module" crossorigin src="/assets/theme-9Jz51v2U.js"></script>
+  <script type="module" crossorigin src="/assets/main-m6Nr8-lc.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-CVGXVOya.css">
+</head>
+
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+
+    <div class="card" style="max-width: 800px; width: 100%; margin: 2rem; padding: 2.5rem;">
+        <div class="text-center mb-2rem">
+            <h1 style="color: #1e3a8a; font-size: 1.8rem; margin-bottom: 0.5rem;">Crea tu Cuenta Profesional</h1>
+            <p style="color: #64748B;">Únete a la red de técnicos y gestiona tus negocios.</p>
+        </div>
+
+        <form id="registrationForm" class="form-grid">
+
+            <div class="form-group">
+                <label for="regName">Nombre Completo o Empresa</label>
+                <input type="text" id="regName" class="form-input" placeholder="Ej. Juan Pérez SpA" required>
+            </div>
+
+            <div class="form-group">
+                <label for="regId">RUT / Identificación Fiscal</label>
+                <input type="text" id="regId" class="form-input" placeholder="Ej. 76.123.456-K" required>
+            </div>
+
+            <div class="form-group">
+                <label for="regCountry">País de Residencia</label>
+                <select id="regCountry" class="form-input" required>
+                    <option value="">Seleccione...</option>
+                    <option value="CL">Chile (CLP)</option>
+                    <option value="MX">México (MXN)</option>
+                    <option value="CO">Colombia (COP)</option>
+                    <option value="AR">Argentina (ARS)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="regTrade">Rubro Principal</label>
+                <select id="regTrade" class="form-input" required>
+                    <option value="">Seleccione...</option>
+                    <option value="Electricidad">Electricidad</option>
+                    <option value="Construcción">Construcción</option>
+                    <option value="Carpintería">Carpintería</option>
+                    <option value="Plomería">Plomería</option>
+                    <option value="Climatización">Climatización</option>
+                    <option value="Mecánica">Mecánica</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="regEmail">Correo Electrónico</label>
+                <input type="email" id="regEmail" class="form-input" placeholder="contacto@profesional.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="regPassword">Contraseña</label>
+                <input type="password" id="regPassword" class="form-input" placeholder="••••••••" required>
+            </div>
+
+            <div class="form-group">
+                <label for="regGoal">Meta de Sueldo Mensual (Neto)</label>
+                <input type="number" id="regGoal" class="form-input" placeholder="Ej. 1500000" min="0">
+                <small style="color: #64748B; font-size: 0.8rem;">Te ayudaremos a calcular cuánto cobrar para
+                    lograrlo.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="regCert">Subir Certificación (SEC / Título)</label>
+                <input type="file" id="regCert" class="form-input" accept=".pdf,.jpg,.png">
+                <small style="color: #64748B; font-size: 0.8rem;">Sube tu carnet o título para obtener la insignia de
+                    "Verificado".</small>
+            </div>
+
+            <button type="submit" class="btn-primary w-full mt-1rem"
+                style="width: 100%; justify-content: center; font-size: 1rem; padding: 14px;">Registrarme</button>
+
+            <div class="flex items-center my-1rem">
+                <div class="flex-grow border-t border-gray-300"></div>
+                <span class="mx-4 text-gray-500 text-sm">O</span>
+                <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+
+            <div id="g_id_onload"
+                data-client_id="1005611267221-qe6jv2n42m2gf2lpugrhk19me6l130fl.apps.googleusercontent.com"
+                data-callback="handleCredentialResponse" data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signup_with"
+                data-shape="rectangular" data-logo_alignment="left" data-width="400">
+                <!-- Width needs adjust based on container -->
+            </div>
+        </form>
+
+        <p class="text-center mt-1rem" style="font-size: 0.9rem; color: #64748B;">
+            ¿Ya tienes cuenta? <a href="login.html" style="color: var(--color-primario); font-weight: 600;">Inicia
+                Sesión</a>
+        </p>
+    </div>
+
+</body>
+
+</html>

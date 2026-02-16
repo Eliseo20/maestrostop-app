@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionalidades - [PROJECT_NAME]</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-primario);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-oscuro);
+        }
+
+        .feature-desc {
+            color: #64748B;
+            line-height: 1.6;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        .tag-new {
+            background-color: #FEF3C7;
+            color: #D97706;
+        }
+
+        .tag-core {
+            background-color: #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .hero-mini {
+            background-color: var(--color-oscuro);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-mini h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-mini p {
+            font-size: 1.1rem;
+            color: #CBD5E1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="brand">[PROJECT_NAME]</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Inicio</a>
+            <a href="marketplace.html" class="nav-item">Buscar Servicios</a>
+            <a href="features.html" class="nav-item active">Funciones</a>
+            <button class="theme-toggle-btn" title="Cambiar Tema">🌙</button>
+            <div class="nav-auth-buttons" style="display: flex; gap: 10px;">
+                <a href="login.html" class="btn-access"
+                    style="background: transparent; border: 1px solid var(--color-primario); color: var(--color-primario);">Ingresar</a>
+                <a href="registration.html" class="btn-access"
+                    style="background: var(--color-oscuro); border: 1px solid var(--color-oscuro); color: white;">Registrarse</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-mini">
+        <h1>Todas tus herramientas en un solo lugar</h1>
+        <p>Desde conseguir clientes hasta gestionar tus impuestos. Descubre todo lo que puedes hacer con [PROJECT_NAME].
+        </p>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="features-grid">
+
+        <!-- Feature 1 -->
+        <div class="feature-card">
+            <div class="feature-icon">💼</div>
+            <h3 class="feature-title">Perfil Profesional Digital</h3>
+            <p class="feature-desc">Crea un portafolio en minutos. Muestra tus trabajos, certificaciones validadas y
+                recibe calificaciones de clientes reales para construir una reputación sólida.</p>
+            <span class="feature-tag tag-core">Esencial</span>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3 class="feature-title">Generador de Presupuestos</h3>
+            <p class="feature-desc">Olvídate del papel y lápiz. Crea presupuestos profesionales en PDF, con desglose
+                claro de materiales y mano de obra, listos para enviar por WhatsApp.</p>
+            <span class="feature-tag tag-core">Productividad</span>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+            <div class="feature-icon">⚖️</div>
+            <h3 class="feature-title">Contratos Automáticos</h3>
+            <p class="feature-desc">Protege tu trabajo. Genera contratos legales automáticamente basados en tus
+                presupuestos e incluye firma digital para ti y tu cliente.</p>
+            <span class="feature-tag tag-new">Legal</span>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3 class="feature-title">Dashboard Financiero</h3>
+            <p class="feature-desc">Visualiza tus ingresos, metas mensuales y trabajos activos. Entiende la salud de tu
+                negocio con un solo vistazo.</p>
+            <span class="feature-tag tag-core">Gestión</span>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3 class="feature-title">Contabilidad Simplificada</h3>
+            <p class="feature-desc">Separa automáticamente lo que es tuyo (Ganancia Neta) de lo que debes guardar
+                (Impuestos, Gastos). Evita gastarte el dinero de los materiales.</p>
+            <span class="feature-tag tag-new">Finanzas</span>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+            <div class="feature-icon">🛠️</div>
+            <h3 class="feature-title">Arsenal & Depreciación</h3>
+            <p class="feature-desc">Gestiona tus herramientas y calcula automáticamente el costo de desgaste
+                (depreciación) para incluirlo en tus precios y crear un fondo de renovación.</p>
+            <span class="feature-tag tag-new">Nuevo</span>
+        </div>
+
+        <!-- Feature 7 -->
+        <div class="feature-card">
+            <div class="feature-icon">⏱️</div>
+            <h3 class="feature-title">Cronómetro de Rentabilidad</h3>
+            <p class="feature-desc">Mide el tiempo real que dedicas a cada proyecto y descubre tu verdadero valor hora.
+                El sistema te sugerirá si necesitas subir tus precios.</p>
+            <span class="feature-tag tag-new">Inteligencia</span>
+        </div>
+
+        <!-- Feature 8 -->
+        <div class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h3 class="feature-title">Inventario de Materiales</h3>
+            <p class="feature-desc">Si trabajas "obra vendida", carga tus materiales y descuéntalos automáticamente de
+                cada presupuesto para llevar un control de stock preciso.</p>
+            <span class="feature-tag tag-new">Logística</span>
+        </div>
+
+    </section>
+
+    <!-- CTA Section -->
+    <section style="text-align: center; padding: 4rem 2rem; background-color: #F8FAFC;">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--color-oscuro);">¿Listo para profesionalizarte?
+        </h2>
+        <p style="margin-bottom: 2rem; color: #64748B;">Únete a miles de técnicos que ya están ordenando su negocio.</p>
+        <a href="registration.html" class="btn-cta" style="display: inline-block;">Crear Cuenta Gratis</a>
+    </section>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

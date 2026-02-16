@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Satisfacción - [PROJECT_NAME]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding-bottom: 40px;
+        }
+
+        .survey-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .survey-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .survey-header h1 {
+            color: var(--color-primario);
+            margin-bottom: 0.5rem;
+        }
+
+        .question-card {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .question-card:last-child {
+            border-bottom: none;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .rating-options {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .rating-option {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 12px;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .rating-option:hover {
+            background-color: var(--bg-color);
+        }
+
+        .rating-option input {
+            display: none;
+        }
+
+        .rating-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            filter: grayscale(100%);
+            transition: filter 0.2s, transform 0.2s;
+        }
+
+        .rating-label {
+            font-size: 0.8rem;
+            text-align: center;
+            color: #64748B;
+        }
+
+        /* Selection States */
+        .rating-option.selected {
+            background-color: #F8FAFC;
+        }
+
+        /* Level 4: Muy Satisfecho (Green Strong) */
+        .rating-option[data-val="4"].selected {
+            border-color: #10B981;
+            background-color: #ECFDF5;
+        }
+
+        .rating-option[data-val="4"].selected .rating-icon {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .rating-option[data-val="4"] .rating-icon {
+            color: #10B981;
+        }
+
+        /* Level 3: Satisfecho (Green Light) */
+        .rating-option[data-val="3"].selected {
+            border-color: #34D399;
+            background-color: #ECFDF5;
+        }
+
+        .rating-option[data-val="3"].selected .rating-icon {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .rating-option[data-val="3"] .rating-icon {
+            color: #34D399;
+        }
+
+        /* Level 2: Insatisfecho (Orange) */
+        .rating-option[data-val="2"].selected {
+            border-color: #F59E0B;
+            background-color: #FFFBEB;
+        }
+
+        .rating-option[data-val="2"].selected .rating-icon {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .rating-option[data-val="2"] .rating-icon {
+            color: #F59E0B;
+        }
+
+        /* Level 1: Muy Insatisfecho (Red) */
+        .rating-option[data-val="1"].selected {
+            border-color: #EF4444;
+            background-color: #FEF2F2;
+        }
+
+        .rating-option[data-val="1"].selected .rating-icon {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .rating-option[data-val="1"] .rating-icon {
+            color: #EF4444;
+        }
+
+
+        #feedbackArea {
+            display: none;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #FEF2F2;
+            border-radius: 8px;
+            border: 1px solid #FECACA;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dark-mode .rating-option.selected {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/survey-B23NkDi9.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/theme-9Jz51v2U.js">
+  <link rel="stylesheet" crossorigin href="/assets/styles-CVGXVOya.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="brand">[PROJECT_NAME]</a>
+        <div class="nav-links">
+            <button class="theme-toggle-btn">🌙</button>
+        </div>
+    </nav>
+
+    <div class="survey-container">
+        <div class="survey-header">
+            <h1>Valoramos tu Opinión</h1>
+            <p>Ayúdanos a mejorar calificando el servicio recibido.</p>
+            <div id="serviceInfo" style="margin-top: 1rem; font-size: 0.9rem; color: #64748B;">
+                <div id="loadingMessage">Cargando detalles del servicio...</div>
+                <div id="paramError" style="display:none; color: #EF4444; font-weight: bold;"></div>
+            </div>
+        </div>
+
+        <div id="identityChallenge" style="display:none; text-align: center;">
+            <p>Por seguridad, ingresa los últimos 4 dígitos del RUT o Teléfono registrado en el contrato.</p>
+            <input type="password" id="challengeInput" maxlength="4" placeholder="****"
+                style="padding: 0.5rem; font-size: 1.2rem; text-align: center; width: 100px; margin: 1rem 0; letter-spacing: 4px;">
+            <br>
+            <button id="btnChallenge" class="btn-primary">Verificar</button>
+        </div>
+
+        <form id="surveyForm" style="display:none;">
+            <!-- Questions rendered by JS -->
+            <div id="questionsContainer"></div>
+
+            <!-- Conditional Feedback -->
+            <div id="feedbackArea">
+                <label style="display: block; font-weight: bold; margin-bottom: 0.5rem; color: #B91C1C;">
+                    ⚠️ Notamos que tu experiencia no fue perfecta.
+                </label>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem; color: #7F1D1D;">Por favor, cuéntanos qué falló para
+                    poder mejorar:</p>
+                <textarea id="feedbackText" rows="4"
+                    style="width: 100%; padding: 0.5rem; border: 1px solid #FCA5A5; border-radius: 6px;"
+                    placeholder="Escribe aquí tus comentarios..."></textarea>
+            </div>
+
+            <div style="margin-top: 2rem; text-align: center;">
+                <button type="submit" class="btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem;">Enviar
+                    Calificación</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

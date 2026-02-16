@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Presupuestos - [PROJECT_NAME]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="manifest" href="/assets/manifest-BwV7lGo5.json">
+  <script type="module" crossorigin src="/assets/theme-9Jz51v2U.js"></script>
+  <script type="module" crossorigin src="/assets/main-m6Nr8-lc.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-CVGXVOya.css">
+</head>
+
+<body class="bg-gray-50">
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar (Reused) -->
+        <aside class="dash-sidebar sidebar">
+            <div class="dash-brand">[PROJECT_NAME]</div>
+            <ul class="dash-nav">
+                <li class="dash-item"><a href="dashboard.html">📊 Dashboard</a></li>
+                <li class="dash-item active"><a href="budget.html">📝 Presupuestos</a></li>
+                <li class="dash-item"><a href="contract.html">📄 Contratos</a></li>
+                <li class="dash-item"><a href="profile.html">💼 Mi Portafolio</a></li>
+                <li class="dash-item"><a href="#">⚙️ Ajustes</a></li>
+                <li class="dash-item"><a href="index.html">🚪 Salir</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+            <!-- Mobile Header -->
+            <header class="dash-header-mobile">
+                <button class="mobile-menu-toggle">Menú</button>
+                <span class="dash-title-mobile">Nuevo Presupuesto</span>
+            </header>
+
+            <header class="dash-header budget-header">
+                <div>
+                    <h1>Crear Nuevo Presupuesto</h1>
+                    <p>Completa los datos para generar una cotización profesional.</p>
+                </div>
+                <div class="folio-badge">Folio #0001</div>
+            </header>
+
+            <div class="budget-container">
+                <!-- Left Column: Form & Table -->
+                <div class="budget-form-section">
+
+                    <!-- Rubro & Client Section -->
+                    <div class="card mb-2rem">
+                        <h3 class="section-title">Datos del Proyecto</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="tradeSelector">Rubro / Oficio</label>
+                                <select id="tradeSelector" class="form-input">
+                                    <option value="general">General</option>
+                                    <option value="electricidad">Electricidad</option>
+                                    <option value="construccion">Construcción / Albañilería</option>
+                                    <option value="carpinteria">Carpintería</option>
+                                    <option value="plomeria">Plomería / Gasfitería</option>
+                                    <option value="climatizacion">Climatización</option>
+                                    <option value="mecanica">Mecánica</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="clientName">Cliente / Empresa <span class="text-red-500">*</span></label>
+                                <input type="text" id="clientName" placeholder="Ej. Juan Pérez"
+                                    class="form-input required-field">
+                            </div>
+                            <div class="form-group">
+                                <label for="clientRut">RUT / ID Cliente <span class="text-red-500">*</span></label>
+                                <input type="text" id="clientRut" placeholder="Ej. 76.123.456-K"
+                                    class="form-input required-field">
+                            </div>
+                            <div class="form-group">
+                                <label for="clientEmail">Correo Electrónico <span class="text-red-500">*</span></label>
+                                <input type="email" id="clientEmail" placeholder="cliente@ejemplo.com"
+                                    class="form-input required-field">
+                            </div>
+                            <div class="form-group">
+                                <label for="projectType">Tipo de Servicio / Obra</label>
+                                <select id="projectType" class="form-input">
+                                    <option value="Instalación">Instalación</option>
+                                    <option value="Reparación">Reparación</option>
+                                    <option value="Mantenimiento">Mantenimiento</option>
+                                    <option value="Inspección Técnica">Inspección Técnica</option>
+                                    <option value="Asesoría">Asesoría / Consultoría</option>
+                                    <option value="Urgencia">Urgencia / Emergencia</option>
+                                    <option value="Remodelación">Remodelación</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                            <!-- Location Fields -->
+                            <div class="form-group">
+                                <label for="projectRegion">Región / Departamento <span
+                                        class="text-red-500">*</span></label>
+                                <select id="projectRegion" class="form-input required-field" disabled>
+                                    <option value="">Cargando...</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectCommune">Comuna / Municipio <span
+                                        class="text-red-500">*</span></label>
+                                <select id="projectCommune" class="form-input required-field" disabled>
+                                    <option value="">Seleccione Región...</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectAddress">Dirección Exacta</label>
+                                <input type="text" id="projectAddress" placeholder="Ej. Calle Principal 123"
+                                    class="form-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Items Table -->
+                    <div class="card">
+                        <h3 class="section-title">Ítems del Presupuesto</h3>
+                        <div class="table-responsive">
+                            <table class="budget-table" id="budgetTable">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 35%;">Descripción</th>
+                                        <th style="width: 20%;">Tipo / Suministro</th>
+                                        <th style="width: 10%;">Cant.</th>
+                                        <th style="width: 15%;">Precio Unit.</th>
+                                        <th style="width: 15%;">Total</th>
+                                        <th style="width: 5%;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Dynamic Rows will be added here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <button id="addItemBtn" class="btn-outline-primary mt-1rem">+ Añadir Ítem</button>
+                    </div>
+
+                </div>
+
+                <!-- Annex Section (Hidden by default, shown in Edit Mode) -->
+                <div class="card mt-2rem" id="annexSection" style="display: none; border: 2px dashed #F59E0B;">
+                    <h3 class="section-title" style="color: #D97706;">👷 Anexos de Obra (Adicionales)</h3>
+                    <p class="text-xs text-gray-500 mb-4">Agrega trabajos extra solicitados fuera del presupuesto
+                        original.</p>
+
+                    <div class="table-responsive">
+                        <table class="budget-table" id="annexTable">
+                            <thead>
+                                <tr>
+                                    <th>Descripción del Extra</th>
+                                    <th style="width: 30%;">Precio</th>
+                                    <th style="width: 10%;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dynamic Annex Rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="btnAddAnnex" class="btn-outline-primary mt-1rem"
+                        style="color: #D97706; border-color: #D97706;">+ Añadir Anexo</button>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Breakdown Widget -->
+            <aside class="budget-sidebar">
+                <div class="card breakdown-widget">
+                    <h3 class="section-title">Desglose</h3>
+
+                    <div class="breakdown-row">
+                        <span>Subtotal</span>
+                        <span id="displaySubtotal">$0.00</span>
+                    </div>
+                    <div class="breakdown-row" style="display:none;">
+                        <!-- Hidden per new logic focusing on Total Price -->
+                        <span>IVA (16%)</span>
+                        <span id="displayTax">$0.00</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span>Adicionales (Anexos)</span>
+                        <span id="displayAnnexTotal">$0.00</span>
+                    </div>
+                    <div class="breakdown-total">
+                        <span>Total del Proyecto</span>
+                        <span id="displayTotal">$0.00</span>
+                    </div>
+
+                    <div class="smart-insight">
+                        <h4 style="margin: 0.5rem 0; font-size: 0.9rem; color: #1e293b;">🔒 Protección del
+                            Profesional</h4>
+
+                        <div class="breakdown-row" style="margin-top:0.5rem;">
+                            <span>Caja de Inicio (Materiales)</span>
+                            <strong id="displayStartBox">$0.00</strong>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>+ 30% Mano de Obra</span>
+                            <strong id="displayLaborAdvance">$0.00</strong>
+                        </div>
+
+                        <div
+                            style="background: #eff6ff; padding: 0.5rem; border-radius: 6px; margin-top: 0.5rem; border: 1px solid #bfdbfe;">
+                            <p style="font-size: 0.8rem; color: #1e40af; margin-bottom: 0.2rem;">Anticipo Sugerido:
+                            </p>
+                            <strong id="displayAdvance" style="font-size: 1.2rem; color: #1e3a8a;">$0.00</strong>
+                        </div>
+
+                        <p class="text-xs text-gray-500 mt-05">
+                            "Este anticipo cubre la totalidad de los insumos necesarios para iniciar, protegiendo el
+                            patrimonio del profesional."
+                        </p>
+                    </div>
+
+                    <div class="actions-group">
+                        <button class="btn-action secondary">Guardar Borrador</button>
+                        <button class="btn-action secondary" id="btnPrintBudget">Vista Previa PDF</button>
+                        <button class="btn-action primary" id="btnGenerate" disabled>Generar y Enviar</button>
+                    </div>
+                </div>
+            </aside>
+    </div>
+
+    </main>
+    </div>
+
+</body>
+
+</html>

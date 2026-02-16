@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentra Expertos - [PROJECT_NAME] Marketplace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="manifest" href="/assets/manifest-BwV7lGo5.json">
+    <style>
+        /* Marketplace Specific Styles */
+        .market-hero {
+            background-color: var(--color-oscuro);
+            color: white;
+            padding: 5rem 5% 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .market-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .search-bar-large {
+            display: flex;
+            max-width: 600px;
+            margin: 2rem auto 0;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-bar-large input {
+            flex: 1;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-bar-large button {
+            background-color: var(--color-primario);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .search-bar-large button:hover {
+            opacity: 0.9;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/theme-9Jz51v2U.js"></script>
+  <script type="module" crossorigin src="/assets/main-m6Nr8-lc.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-CVGXVOya.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="brand">[PROJECT_NAME]</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Inicio</a>
+            <a href="marketplace.html" class="nav-item active">Buscar Servicios</a>
+            <a href="features.html" class="nav-item">Funciones</a>
+            <button class="theme-toggle-btn" title="Cambiar Tema">🌙</button>
+            <div class="nav-auth-buttons" style="display: flex; gap: 10px;">
+                <a href="login.html" class="btn-access"
+                    style="background: transparent; border: 1px solid var(--color-primario); color: var(--color-primario);">Soy
+                    Técnico</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="market-hero">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">¿Qué solución necesitas hoy?</h1>
+        <p class="text-secondary" style="color: #cbd5e1;">Encuentra expertos certificados para tu hogar o negocio.</p>
+
+        <div class="search-bar-large">
+            <input type="text" id="marketSearch" placeholder="Ej. Instalación eléctrica, Fuga de agua...">
+            <button id="btnSearch">Buscar</button>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="category-filters" id="categoryFilters">
+        <button class="cat-chip active" data-cat="all">Todos</button>
+        <button class="cat-chip" data-cat="electricidad">⚡ Electricidad</button>
+        <button class="cat-chip" data-cat="gasfiteria">🔧 Gasfitería</button>
+        <button class="cat-chip" data-cat="clima">❄️ Climatización</button>
+        <button class="cat-chip" data-cat="construccion">🔨 Construcción Ligera</button>
+        <button class="cat-chip" data-cat="seguridad">📹 Seguridad</button>
+        <button class="cat-chip" data-cat="solar">☀️ Energías Renovables</button>
+        <button class="cat-chip" data-cat="carpinteria">🪑 Carpintería</button>
+    </section>
+
+    <!-- Solutions Feed -->
+    <section class="solutions-grid" id="solutionsFeed">
+        <!-- Cards will be injected by JS -->
+    </section>
+
+    <!-- Request Modal -->
+    <div class="modal-overlay" id="requestModal">
+        <div class="modal-card">
+            <button id="closeModal"
+                style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            <h2 style="margin-bottom: 0.5rem; color: var(--color-oscuro);">Solicitar Presupuesto</h2>
+            <p style="color: #64748B; margin-bottom: 1.5rem; font-size: 0.9rem;">Envía tus datos al técnico. Te
+                contactará breved.</p>
+
+            <form id="requestForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                <input type="hidden" id="techIdField">
+                <div>
+                    <label style="font-size: 0.85rem; font-weight: 600; color: #475569;">Tu Nombre</label>
+                    <input type="text" id="clientName" required placeholder="Ej. Ana García">
+                </div>
+                <div>
+                    <label style="font-size: 0.85rem; font-weight: 600; color: #475569;">Teléfono / WhatsApp</label>
+                    <input type="tel" id="clientPhone" required placeholder="+56 9 1234 5678">
+                </div>
+                <div>
+                    <label style="font-size: 0.85rem; font-weight: 600; color: #475569;">Urgencia</label>
+                    <select id="clientUrgency" required
+                        style="width: 100%; padding: 0.75rem; border: 1px solid #E2E8F0; border-radius: 8px;">
+                        <option value="Normal">Normal (Esta semana)</option>
+                        <option value="Alta">Alta (Lo antes posible)</option>
+                        <option value="Emergencia">🚨 Emergencia (¡Ahora!)</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="font-size: 0.85rem; font-weight: 600; color: #475569;">Comuna</label>
+                    <select id="clientCommune" required
+                        style="width: 100%; padding: 0.75rem; border: 1px solid #E2E8F0; border-radius: 8px;">
+                        <option value="">Selecciona tu comuna...</option>
+                        <option value="Santiago">Santiago</option>
+                        <option value="Providencia">Providencia</option>
+                        <option value="Las Condes">Las Condes</option>
+                        <option value="Ñuñoa">Ñuñoa</option>
+                        <option value="La Florida">La Florida</option>
+                        <option value="Maipú">Maipú</option>
+                        <option value="Puente Alto">Puente Alto</option>
+                        <!-- Add more as needed -->
+                    </select>
+                </div>
+                <div>
+                    <label style="font-size: 0.85rem; font-weight: 600; color: #475569;">Foto del Problema
+                        (Opcional)</label>
+                    <input type="file" id="clientPhoto" accept="image/*" style="width: 100%;">
+                </div>
+                <div>
+                    <label style="font-size: 0.85rem; font-weight: 600; color: #475569;">Descripción del
+                        Problema</label>
+                    <textarea id="clientDesc" rows="3" required
+                        placeholder="Describe brevemente lo que necesitas..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="margin-top: 0.5rem;">🚀 Enviar Solicitud</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Simple Inline Logic for Demo (or move to app.js MarketplaceModule)
+        // We will implement full logic in app.js as requested.
+    </script>
+</body>
+
+</html>
