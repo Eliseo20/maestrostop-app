@@ -1,6 +1,7 @@
 services:
   - type: web
     name: maestrostop
+    plan: free
     env: node
     buildCommand: npm install && npm run build && cd server && npm install
     startCommand: node server/server.js
